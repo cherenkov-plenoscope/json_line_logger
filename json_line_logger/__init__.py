@@ -101,7 +101,7 @@ def reduce_into_records(list_of_log_paths):
 
 
 class MapAndReducePoolWithLogger:
-    def __init__(pool, logger):
+    def __init__(self, pool, logger):
         self.pool = pool
         self.logger = logger
 
