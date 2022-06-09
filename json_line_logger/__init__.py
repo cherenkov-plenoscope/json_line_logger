@@ -12,17 +12,15 @@ import inspect
 
 
 DATEFMT_ISO8601 = "%Y-%m-%dT%H:%M:%S"
-_FMT_SEP = ", "
-_FMT_START = "{"
-_FMT_START += '"t":"%(asctime)s.%(msecs)03d"'
-_FMT_START += _FMT_SEP
-_FMT_START += '"c":"%(module)s:%(funcName)s"'
-_FMT_START += _FMT_SEP
-_FMT_START += '"l":"%(levelname)s"'
-_FMT_START += _FMT_SEP
-_FMT_START += '"m":"%(message)s"'
-_FMT_END = "}"
-FMT = _FMT_START + _FMT_END
+FMT = "{"
+FMT += '"t":"%(asctime)s.%(msecs)03d"'
+FMT += ", "
+FMT += '"c":"%(pathname)s:%(funcName)s:%(lineno)s"'
+FMT += ", "
+FMT += '"l":"%(levelname)s"'
+FMT += ", "
+FMT += '"m":"%(message)s"'
+FMT += "}"
 
 
 def LoggerStdout(name="stdout"):
