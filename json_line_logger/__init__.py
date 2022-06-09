@@ -88,8 +88,8 @@ def reduce_into_records(list_of_log_paths):
         with open(log_path, "rt") as fin:
             for line in fin:
                 logline = json.loads(line)
-                if "msg" in logline:
-                    msg = logline["msg"]
+                if "m" in logline:
+                    msg = logline["m"]
                     if key in msg:
                         iname = str.find(msg, key)
                         name = msg[:(iname)]

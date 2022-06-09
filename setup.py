@@ -5,7 +5,7 @@ with open("README.rst", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="json_line_logger_sebastian-achim-mueller",
-    version="0.0.2",
+    version="0.0.3",
     description="Configs for python's logging library to have a JSONL-log",
     long_description=long_description,
     long_description_content_type="text/x-rst",
