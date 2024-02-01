@@ -1,7 +1,7 @@
 ################
 Json Line Logger
 ################
-|TestStatus| |PyPiStatus| |BlackStyle|
+|TestStatus| |PyPiStatus| |BlackStyle| |BlackPackStyle| |MITLicenseBadge|
 
 
 Uses python's awesome logging-library and configures it to write JSON-lines.
@@ -17,3 +17,9 @@ This makes the log easy to read with a machine.
 
 .. |BlackStyle| image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
+
+.. |BlackPackStyle| image:: https://img.shields.io/badge/pack%20style-black-000000.svg
+    :target: https://github.com/cherenkov-plenoscope/black_pack
+
+.. |MITLicenseBadge| image:: https://img.shields.io/badge/License-MIT-yellow.svg
+    :target: https://opensource.org/licenses/MIT
