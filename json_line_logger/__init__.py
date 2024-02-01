@@ -16,11 +16,11 @@ DATEFMT_ISO8601 = "%Y-%m-%dT%H:%M:%S"
 FMT = "{"
 FMT += '"t":"%(asctime)s.%(msecs)03d"'
 FMT += ", "
-FMT += '"c":"%(pathname)s:%(funcName)s:%(lineno)s"'
-FMT += ", "
 FMT += '"l":"%(levelname)s"'
 FMT += ", "
 FMT += '"m":"%(message)s"'
+FMT += ", "
+FMT += '"c":"%(pathname)s:%(funcName)s:%(lineno)s"'
 FMT += "}"
 
 
