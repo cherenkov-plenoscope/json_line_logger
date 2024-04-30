@@ -28,6 +28,13 @@ def LoggerStdout(name="stdout"):
     return LoggerStream(stream=sys.stdout, name=name)
 
 
+def LoggerStdout_if_logger_is_None(logger):
+    if logger is None:
+        return LoggerStdout()
+    else:
+        return logger
+
+
 def LoggerStream(stream=sys.stdout, name="stream"):
     lggr = logging.Logger(name=name)
     fmtr = logging.Formatter(fmt=FMT, datefmt=DATEFMT_ISO8601)
