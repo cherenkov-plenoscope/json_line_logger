@@ -26,7 +26,9 @@ setuptools.setup(
         "json_line_logger",
     ],
     package_data={"json_line_logger": []},
-    install_requires=["pandas"],
+    install_requires=[
+        "json_utils_sebastian-achim-mueller>=0.0.5",
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
