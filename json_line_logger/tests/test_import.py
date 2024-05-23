@@ -1,6 +1,8 @@
 import json_line_logger
 import json_utils
 import io
+import tempfile
+import os
 
 
 def test_log_to_stream():
@@ -29,3 +31,12 @@ def test_log_to_stream():
     assert logs[2]["l"] == "CRITICAL"
     assert logs[2]["m"] == "3"
     assert logs[2]["t"] >= logs[1]["t"]
+
+
+def test_shutdown():
+    with tempfile.TemporaryDirectory(suffix="json_line_logger.tests") as tmp:
+        logger = json_line_logger.LoggerFile(
+            path=os.path.join(tmp, "log.jsonl")
+        )
+        logger.info("lala")
+        json_line_logger.shutdown(logger=logger)

@@ -50,6 +50,13 @@ def LoggerFile(path, name="file"):
     return lggr
 
 
+def shutdown(logger):
+    for fh in logger.handlers:
+        fh.flush()
+        fh.close()
+        logger.removeHandler(fh)
+
+
 class TimeDelta:
     def __init__(self, logger, name, level=logging.INFO):
         self.logger = logger
