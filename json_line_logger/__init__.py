@@ -5,6 +5,7 @@ from .version import __version__
 import time
 import logging
 import sys
+import io
 
 
 DATEFMT_ISO8601 = "%Y-%m-%dT%H:%M:%S"
@@ -71,8 +72,22 @@ class TimeDelta:
         self.stop = time.time()
         self.logger.log(
             level=self.level,
-            msg=self.name + ":delta:{:f}".format(self.delta()),
+            msg=xml(tagname="TimeDelta", name=self.name, delta=self.delta()),
         )
 
     def delta(self):
         return self.stop - self.start
+
+
+def xml(tagname, **kwargs):
+    buff = io.StringIO()
+    buff.write("<{:s}".format(tagname))
+    for key, value in kwargs.items():
+        svalue = str(value)
+        svalue = svalue.replace('"', ";")
+        svalue = svalue.replace("'", ":")
+        buff.write(" ")
+        buff.write("{:s}='{:s}'".format(key, svalue))
+    buff.write("/>")
+    buff.seek(0)
+    return buff.read()
