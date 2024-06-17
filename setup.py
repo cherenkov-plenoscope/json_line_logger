@@ -27,7 +27,7 @@ setuptools.setup(
     ],
     package_data={"json_line_logger": []},
     install_requires=[
-        "json_utils_sebastian-achim-mueller>=0.0.5",
+        "json_lines>=0.5.0",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

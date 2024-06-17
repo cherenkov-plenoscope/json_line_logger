@@ -1,5 +1,5 @@
 import json_line_logger
-import json_utils
+import json_lines
 import io
 import tempfile
 import os
@@ -16,9 +16,8 @@ def test_log_to_stream():
     stream.seek(0)
 
     logs = []
-    with json_utils.lines.Reader(file=stream) as rrr:
-        for obj in rrr:
-            logs.append(obj)
+    for item in json_lines.reader(stream):
+        logs.append(item)
 
     assert len(logs) == 3
     assert logs[0]["l"] == "DEBUG"
