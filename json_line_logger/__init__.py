@@ -1,6 +1,7 @@
 """
 A simple json-line-logger
 """
+
 from .version import __version__
 import time
 import logging
