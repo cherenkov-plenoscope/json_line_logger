@@ -20,9 +20,10 @@ FMT += ", "
 FMT += '"c":"%(pathname)s:%(funcName)s:%(lineno)s"'
 FMT += "}"
 
+SMP = "%(asctime)s.%(msecs)03d  %(levelname)s  %(message)s"
 
-def LoggerStdout(name="stdout"):
-    return LoggerStream(stream=sys.stdout, name=name)
+def LoggerStdout(name="stdout", fmt=FMT):
+    return LoggerStream(stream=sys.stdout, name=name, fmt=fmt)
 
 
 def LoggerStdout_if_logger_is_None(logger):
@@ -32,9 +33,9 @@ def LoggerStdout_if_logger_is_None(logger):
         return logger
 
 
-def LoggerStream(stream=sys.stdout, name="stream"):
+def LoggerStream(stream=sys.stdout, name="stream", fmt=FMT):
     lggr = logging.Logger(name=name)
-    fmtr = logging.Formatter(fmt=FMT, datefmt=DATEFMT_ISO8601)
+    fmtr = logging.Formatter(fmt=fmt, datefmt=DATEFMT_ISO8601)
     stha = logging.StreamHandler(stream)
     stha.setFormatter(fmtr)
     lggr.addHandler(stha)
@@ -42,10 +43,10 @@ def LoggerStream(stream=sys.stdout, name="stream"):
     return lggr
 
 
-def LoggerFile(path, name="file"):
+def LoggerFile(path, name="file", fmt=FMT):
     lggr = logging.Logger(name=name)
     file_handler = logging.FileHandler(filename=path, mode="w")
-    fmtr = logging.Formatter(fmt=FMT, datefmt=DATEFMT_ISO8601)
+    fmtr = logging.Formatter(fmt=fmt, datefmt=DATEFMT_ISO8601)
     file_handler.setFormatter(fmtr)
     lggr.addHandler(file_handler)
     lggr.setLevel(logging.DEBUG)
